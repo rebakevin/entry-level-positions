@@ -195,6 +195,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('main-header').innerHTML = await Header.render();
     document.getElementById('main-footer').innerHTML = await Footer.render();
 
+    // Initialize Usage Tracker
+    const updateTracker = (count) => {
+        const tracker = document.getElementById('usage-tracker');
+        const countSpan = document.getElementById('request-count');
+        if (tracker && countSpan) {
+            countSpan.textContent = count;
+            if (count >= 200) {
+                tracker.classList.add('limit-reached');
+            } else if (count >= 180) {
+                tracker.classList.add('limit-near');
+            }
+        }
+    };
+
+    // Set initial value
+    updateTracker(Store.getRequestCount());
+
+    // Listen for updates
+    window.addEventListener('requestCountUpdated', (e) => {
+        updateTracker(e.detail);
+    });
+
     // Start router
     new Router(routes);
 });

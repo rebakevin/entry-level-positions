@@ -1,0 +1,31 @@
+.usage-tracker {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    cursor: help;
+    transition: all var(--transition-fast);
+}
+
+.usage-tracker:hover {
+    background: rgba(37, 99, 235, 0.2);
+    transform: translateY(-1px);
+}
+
+.usage-tracker.limit-near {
+    color: #eab308;
+    background: rgba(234, 179, 8, 0.1);
+    border-color: rgba(234, 179, 8, 0.2);
+}
+
+.usage-tracker.limit-reached {
+    color: var(--color-error);
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.2);
+}

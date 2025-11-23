@@ -23,5 +23,16 @@ export const Store = {
     isBookmarked(jobId) {
         const bookmarks = this.getBookmarks();
         return bookmarks.some(b => b.job_id === jobId);
+    },
+
+    getRequestCount() {
+        return parseInt(localStorage.getItem('api_request_count') || '0');
+    },
+
+    incrementRequestCount() {
+        const current = this.getRequestCount();
+        localStorage.setItem('api_request_count', (current + 1).toString());
+        // Dispatch event for UI updates
+        window.dispatchEvent(new CustomEvent('requestCountUpdated', { detail: current + 1 }));
     }
 };

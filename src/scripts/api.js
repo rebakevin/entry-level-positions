@@ -1,16 +1,29 @@
+import { Store } from './store.js';
+
 const API_KEY = '13a6f94d64msha3b555da25e50d1p1342e1jsn5cd3d2dbbd0c';
 const API_HOST = 'jsearch.p.rapidapi.com';
 const BASE_URL = 'https://jsearch.p.rapidapi.com/search';
 
 export const searchJobs = async (query, filters = {}) => {
-    const params = new URLSearchParams({
+    // Map filters to API parameters
+    const queryParams = {
         query: query,
         page: '1',
         num_pages: '1',
         country: filters.country || 'us',
-        date_posted: 'all',
-        ...filters
-    });
+        date_posted: filters.date_posted || 'all',
+    };
+
+    // Handle optional parameters
+    if (filters.job_requirements) {
+        queryParams.job_requirements = filters.job_requirements;
+    }
+
+    if (filters.work_from_home) {
+        queryParams.work_from_home = 'true';
+    }
+
+    const params = new URLSearchParams(queryParams);
 
     const options = {
         method: 'GET',
@@ -21,6 +34,9 @@ export const searchJobs = async (query, filters = {}) => {
     };
 
     try {
+        // Increment usage count before request
+        Store.incrementRequestCount();
+
         const response = await fetch(`${BASE_URL}?${params.toString()}`, options);
         if (!response.ok) {
             throw new Error(`API Error: ${response.status}`);

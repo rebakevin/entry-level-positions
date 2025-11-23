@@ -15,6 +15,7 @@
 @import 'components/_cards.css';
 @import 'components/_forms.css';
 @import 'components/_status-message.css';
+@import 'components/_usage-tracker.css';
 
 /* Sections */
 @import 'sections/_home.css';
