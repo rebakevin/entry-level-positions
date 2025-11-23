@@ -1,8 +1,5 @@
 import { Store } from './store.js';
-
-const API_KEY = '13a6f94d64msha3b555da25e50d1p1342e1jsn5cd3d2dbbd0c';
-const API_HOST = 'jsearch.p.rapidapi.com';
-const BASE_URL = 'https://jsearch.p.rapidapi.com/search';
+import { API_KEY, API_HOST, BASE_URL } from './config.js';
 
 export const searchJobs = async (query, filters = {}) => {
     // Map filters to API parameters
