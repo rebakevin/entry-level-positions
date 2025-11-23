@@ -44,7 +44,7 @@ const Search = {
         jobs: [],
         filters: {
             query: 'Software Engineer',
-            job_requirements: 'entry_level',
+            job_requirements: 'under_3_years_experience',
             remote_jobs_only: false,
             date_posted: 'all'
         },
