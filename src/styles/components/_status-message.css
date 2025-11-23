@@ -1,0 +1,18 @@
+.status-message {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.status-error {
+    background-color: #fef2f2;
+    color: var(--color-error);
+    border: 1px solid #fee2e2;
+}
+
+.status-success {
+    background-color: #f0fdf4;
+    color: var(--color-success);
+    border: 1px solid #dcfce7;
+}

@@ -1,0 +1,11 @@
+#search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.filters {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}

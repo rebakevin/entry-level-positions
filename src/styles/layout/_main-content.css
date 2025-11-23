@@ -1,0 +1,5 @@
+#main-content {
+    min-height: calc(100vh - 140px);
+    /* Approx header + footer height */
+    padding-bottom: var(--spacing-2xl);
+}

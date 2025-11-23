@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="search-header mb-lg">
+        <h2>Search Jobs</h2>
+        <form id="search-form" class="search-form">
+            <div class="form-group" style="flex: 2;">
+                <label for="query" class="text-sm font-bold">Keywords</label>
+                <input type="text" id="query" class="form-input" value="Software Engineer"
+                    placeholder="e.g. Frontend Developer">
+            </div>
+            <div class="form-group">
+                <label for="level" class="text-sm font-bold">Level</label>
+                <select id="level" class="form-select">
+                    <option value="entry_level">Entry Level</option>
+                    <option value="no_experience">No Experience</option>
+                    <option value="under_3_years_experience">Junior (< 3 Years)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date" class="text-sm font-bold">Posted</label>
+                <select id="date" class="form-select">
+                    <option value="all">Any time</option>
+                    <option value="today">Today</option>
+                    <option value="week">Past Week</option>
+                    <option value="month">Past Month</option>
+                </select>
+            </div>
+            <div class="form-group flex items-center" style="padding-bottom: 10px;">
+                <label class="flex items-center gap-sm cursor-pointer">
+                    <input type="checkbox" id="remote" class="form-checkbox">
+                    <span>Remote Only</span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+
+    <div id="status-message"></div>
+    <div id="results-container" class="grid-jobs"></div>
+</div>

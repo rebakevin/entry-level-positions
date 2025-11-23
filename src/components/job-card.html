@@ -1,0 +1,18 @@
+<div class="job-card">
+    <div class="flex justify-between items-center mb-md">
+        <h3>{{job_title}}</h3>
+        <button class="btn-icon bookmark-btn" data-id="{{job_id}}" aria-label="{{bookmark_label}}">
+            {{bookmark_icon}}
+        </button>
+    </div>
+    <p class="company">{{employer_name}}</p>
+    <p class="location">
+        <span>📍 {{location}}</span>
+        <span class="ml-auto">{{job_type}}</span>
+    </p>
+    <p class="description">{{job_description}}</p>
+    <div class="flex justify-between items-center mt-md">
+        <span class="text-sm text-muted">{{posted_date}}</span>
+        <a href="{{job_apply_link}}" target="_blank" class="btn btn-primary btn-sm">Apply Now</a>
+    </div>
+</div>
