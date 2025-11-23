@@ -3,6 +3,10 @@
     margin: 0 auto;
 }
 
+.search-header {
+    margin-bottom: var(--spacing-2xl);
+}
+
 .filters {
     display: flex;
     gap: var(--spacing-md);

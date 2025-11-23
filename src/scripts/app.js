@@ -27,7 +27,7 @@ const renderJobCard = async (job, template) => {
     html = html.replace(/{{location}}/g, `${job.job_city || ''}, ${job.job_country || ''}`);
     html = html.replace(/{{job_type}}/g, job.job_is_remote ? '🌐 Remote' : '🏢 On-site');
     html = html.replace(/{{job_description}}/g, job.job_description ? job.job_description.substring(0, 150) + '...' : 'No description available.');
-    html = html.replace(/{{posted_date}}/g, new Date(job.job_posted_at_datetime_utc).toLocaleDateString());
+    html = html.replace(/{{posted_date}}/g, `Published on: ${new Date(job.job_posted_at_datetime_utc).toLocaleDateString()}`);
     html = html.replace(/{{job_apply_link}}/g, job.job_apply_link || '#');
 
     return html;
@@ -92,10 +92,16 @@ const Search = {
 
         try {
             const filters = {
-                job_requirements: level,
                 date_posted: date,
                 remote_jobs_only: remote
             };
+
+            // Handle special case for Internship (employment_types) vs others (job_requirements)
+            if (level === 'INTERN') {
+                filters.employment_types = 'INTERN';
+            } else {
+                filters.job_requirements = level;
+            }
 
             const jobs = await searchJobs(query, filters);
             Search.state.jobs = jobs;

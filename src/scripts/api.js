@@ -23,6 +23,10 @@ export const searchJobs = async (query, filters = {}) => {
         queryParams.work_from_home = 'true';
     }
 
+    if (filters.employment_types) {
+        queryParams.employment_types = filters.employment_types;
+    }
+
     const params = new URLSearchParams(queryParams);
 
     const options = {
