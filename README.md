@@ -1,14 +1,14 @@
 # Entry Level Positions
 
-[Watch the Demo Video](https://youtu.be/_hOUKFYqvNs)
-
 ## Functionalities
-- **Searching for jobs**: Easily find entry-level software engineering positions.
-- **Saving/bookmarking jobs**: Keep track of the jobs you liked.
-- **Direct Application**: Direct links to take you to the official application form.
-- **Embedded demo video**: Watch the guidance video directly on the home page.
-- **Responsive & Accessible**: Fully responsive design with dark/light theme support.
-- **Usage Tracking**: Tracks API requests to notify you before hitting rate limits.
+All features are demonstrated in this short demo.
+[Watch the Demo Video](https://youtu.be/_hOUKFYqvNs)
+- Searching for jobs
+- Saving/bookmarking jobs
+- Direct Application
+- Embedded demo video
+- Responsive & Accessible
+- Usage Tracking
 
 ## How to run it locally
 1. **Clone the repo**:
