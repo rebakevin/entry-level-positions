@@ -12,6 +12,14 @@ export class Router {
 
         if (route) {
             this.root.innerHTML = await route.render();
+
+            // Toggle home-page class for styling
+            if (hash === '/' || hash === '') {
+                this.root.classList.add('home-page');
+            } else {
+                this.root.classList.remove('home-page');
+            }
+
             if (route.afterRender) await route.afterRender();
         }
     }
