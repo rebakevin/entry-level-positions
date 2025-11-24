@@ -1,60 +1,57 @@
 # Entry Level Positions
 
-**Entry Level Positions** is a web application designed to help graduates find their first software engineering role.
+[Watch the Demo Video](https://youtu.be/_hOUKFYqvNs)
 
-## Features
+## Functionalities
+- **Searching for jobs**: Easily find entry-level software engineering positions.
+- **Saving/bookmarking jobs**: Keep track of the jobs you liked.
+- **Direct Application**: Direct links to take you to the official application form.
+- **Embedded demo video**: Watch the guidance video directly on the home page.
+- **Responsive & Accessible**: Fully responsive design with dark/light theme support.
+- **Usage Tracking**: Tracks API requests to notify you before hitting rate limits.
 
-### 1. Job Search & Filtering
-- **Search**: Users can search for jobs by title or keyword.
-- **Filters**:
-    - **Level**: Entry Level, No Experience, Junior.
-    - **Posted Date**: Today, Past Week, Past Month.
-    - **Remote**: Toggle for remote-only positions.
-- **Real Data**: Integrated with the **JSearch API** to fetch live job listings.
+## How to run it locally
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/rebakevin/entry-level-positions.git
+   ```
+2. **Open the file**:
+   Simply open `index.html` in your browser.
 
-### 2. Bookmarking
-- Users can **save jobs** they are interested in.
-- Bookmarks are persisted using `localStorage`, so they remain available after refreshing the page.
-- A dedicated **Saved Jobs** page allows users to review their bookmarks.
+## Credits
+Powered by the [JSearch API](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch).
 
-### 3. Premium UI/UX
-- **Design**: Clean, modern interface using a blue/indigo color palette (`Inter` font).
-- **Responsive**: Fully responsive layout that works on mobile and desktop.
-- **Feedback**: Loading states and error messages provide clear feedback to the user.
+## Steps to deploy with Nginx
+*Assuming you already have the Nginx load balancer server set up and both web-01 and web-02 servers up and running.*
 
-## How to Run
+1. **Clone the repo**:
+   On your web-01 and web-02 servers, clone the repository into the `/var/www/html` folder.
+   ```bash
+   cd /var/www/html
+   git clone https://github.com/rebakevin/entry-level-positions.git .
+   ```
 
-Since this is a client-side application using vanilla HTML/CSS/JS, you can run it easily:
+2. **Update Nginx Configuration**:
+   Edit the default site configuration in `sites-enabled` to point the root to your repo folder.
+   ```bash
+   sudo vim /etc/nginx/sites-enabled/default
+   ```
 
-1.  **Open `index.html`** directly in your browser.
-    *   *Note: For the best experience and to avoid CORS issues (though JSearch usually supports CORS), it's recommended to use a local development server.*
-    *   If you have VS Code, use the **Live Server** extension.
-    *   Or run `npx serve .` in the project root.
+3. **Update Sites Available**:
+   Edit the configuration in `sites-available` as well.
+   ```bash
+   sudo vim /etc/nginx/sites-available/default
+   ```
 
-## User Guide / Verification
+4. **Restart Nginx**:
+   Restart the server to apply changes.
+   ```bash
+   sudo service nginx restart
+   ```
 
-### Flow 1: Find Entry-Level Jobs
-1.  Go to the **Home** page.
-2.  Click **Start Search**.
-3.  Enter "Software Engineer" and select "Entry Level".
-4.  Click **Search**.
-5.  Verify that job cards appear with titles, company names, and locations.
+## Challenges & Solutions
+### Deployment
+Configuring the Nginx server to correctly serve a Single Page Application (SPA) presented initial routing challenges. I overcame this by ensuring the root paths were correctly pointed in the Nginx configuration and debugging file visibility issues (like ensuring `config.js` was tracked) to guarantee a smooth deployment across multiple servers.
 
-### Flow 2: Filter by Remote
-1.  On the search page, check the **Remote Only** box.
-2.  Click **Search** again.
-3.  Verify that the results (or the "Remote" tag on cards) reflect the filter.
-
-### Flow 3: Bookmark a Job
-1.  Click the **Star (☆)** icon on any job card.
-2.  Navigate to the **Saved** page via the header.
-3.  Verify the job is listed there.
-
-### Flow 4: Error Handling
-1.  Disconnect your internet or use an invalid query.
-2.  Verify that a user-friendly error message appears instead of the app crashing.
-
-## Project Structure
-- `src/components`: (Conceptually separated in `app.js` for simplicity in this vanilla implementation, but styles are separated)
-- `src/scripts`: Contains `app.js`, `api.js`, `router.js`, `store.js`.
-- `src/styles`: Modular CSS with `base`, `components`, `layout`, and `sections`.
+### UI Design
+Creating a "premium" feel while displaying dense information was a significant design challenge. I focused on using generous whitespace, a refined color palette, and modern typography to ensure the interface didn't feel compacted. Implementing a seamless dark/light mode switch further enhanced the user experience and accessibility.
