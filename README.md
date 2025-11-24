@@ -8,7 +8,7 @@ All features are demonstrated in this short demo.
 - Direct Application
 - Embedded demo video
 - Responsive & Accessible
-- Usage Tracking
+- API usage rate tracking
 
 ## How to run it locally
 1. **Clone the repo**:
