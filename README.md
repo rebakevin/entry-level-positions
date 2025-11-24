@@ -51,7 +51,7 @@ Powered by the [JSearch API](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsea
 
 ## Challenges & Solutions
 ### Deployment
-Configuring the Nginx server to correctly serve a Single Page Application (SPA) presented initial routing challenges. I overcame this by ensuring the root paths were correctly pointed in the Nginx configuration and debugging file visibility issues (like ensuring `config.js` was tracked) to guarantee a smooth deployment across multiple servers.
+Configuring the Nginx server to correctly serve a Single Page Application (SPA) was challenging at first. I overcame this by ensuring the root paths were correctly pointed in the Nginx configuration and debugging file visibility issues (like ensuring `config.js` was tracked) to ensure a smooth deployment across multiple servers.
 
 ### UI Design
-Creating a "premium" feel while displaying dense information was a significant design challenge. I focused on using generous whitespace, a refined color palette, and modern typography to ensure the interface didn't feel compacted. Implementing a seamless dark/light mode switch further enhanced the user experience and accessibility.
+Coming up with a minimalistic design that delivers real value without unnecessary distractions is always tricky. I had to take a deep breath and take my time to come up with something pretty creative. 
